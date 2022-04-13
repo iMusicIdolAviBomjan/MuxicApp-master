@@ -109,6 +109,9 @@ class _SearchPageState extends State<SearchPage> {
   Future<void> getTrendingSearch() async {
     topSearch.value = await SaavnAPI().getTopSearches();
   }
+  Future<void> getReleaseNewsAndEven() async {
+    topSearch.value = await SaavnAPI().getTopSearches();
+  }
 
   Widget nothingFound(BuildContext context) {
     if (!alertShown) {
@@ -185,10 +188,27 @@ class _SearchPageState extends State<SearchPage> {
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .secondary,
-                                            fontSize: 25,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w800,
+
+                                          ),
+                                        ),
+
+                                        Text('              ',
+                                          style: TextStyle(
+                                            fontSize: 20,
                                             fontWeight: FontWeight.w800,
                                           ),
                                         ),
+
+                                        TextButton(
+                                            child: Text('News and events'),
+                                            style: TextButton.styleFrom(primary: Colors.greenAccent),
+                                            onPressed: () {
+                                              print('');
+                                            }
+
+                                        )
                                       ],
                                     ),
                                   ),
