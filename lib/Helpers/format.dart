@@ -19,11 +19,13 @@
 
 import 'dart:convert';
 import 'dart:developer';
+//import 'dart:html';
 import 'dart:typed_data';
 
 import 'package:blackhole/APIs/api.dart';
 import 'package:dart_des/dart_des.dart';
 import 'package:hive/hive.dart';
+import 'package:flutter/material.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class FormatResponse {
@@ -526,12 +528,24 @@ class FormatResponse {
           fetchDetails: false,
         );
       }
-      if (data['city_mod'] != null) {
-        data['city_mod'] = await formatSongsInList(
-          data['city_mod'] as List,
-          fetchDetails: true,
-        );
-      }
+
+      // TextButton(
+      //     child: Text('News and events'),
+      //     style: TextButton.styleFrom(primary: Colors.greenAccent),
+      //     onPressed: () {
+      //       print('');
+      //     }
+      // );
+
+
+      // child: const Text(
+      //   'Hello, world!',
+      // );
+
+      // if (data['collections'] != null) {
+      //   child: Text('Click me');
+      // }
+
       final List promoList = [];
       final List promoListTemp = [];
       data['modules'].forEach((k, v) {
@@ -552,13 +566,13 @@ class FormatResponse {
       }
       data['collections'] = [
         'new_trending',
-        //'charts',
-        'new_albums',
-        //'top_playlists',
-        //'radio',
-        //'city_mod',
-        //'artist_recos',
-        //...promoList
+        'charts',
+        // 'new_albums',
+        // 'top_playlists',
+        // 'radio',
+        // 'city_mod',
+        // 'artist_recos',
+        // 'promoList',
       ];
       data['collections_temp'] = promoListTemp;
     } catch (e) {
@@ -578,8 +592,9 @@ class FormatResponse {
       }
       data['collections'].addAll(promoList);
       data['collections_temp'] = [];
-    } catch (e) {
-      log('Error in formatPromoLists: $e');
+    }
+    catch (e) {
+      log('Error in formatPromoLists1: $e');
     }
     return data;
   }

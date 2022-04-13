@@ -51,11 +51,17 @@ dependencies:
   youtube_explode_dart: 1.10.6
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^3.2.0
   lint: ^1.8.2
   msix: ^3.2.0
 
+flutter_icon:
+  image_path: "android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+  android: true
+  ios: true
 
 flutter:
   uses-material-design: true
@@ -72,5 +78,5 @@ msix_config:
   publisher_display_name: Ankit Sangwan
   identity_name: com.shadow.blackhole
   icons_background_color: transparent
-  logo_path: assets/ic_launcher.png
+  logo_path: android/app/src/main/ic_launcher_round.png
   file_extension: .mp3, .m4a
